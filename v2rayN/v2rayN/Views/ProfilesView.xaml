@@ -27,7 +27,8 @@
                     MaxHeight="200"
                     FontSize="{DynamicResource StdFontSize}"
                     ItemContainerStyle="{StaticResource MyChipListBoxItem}"
-                    Style="{StaticResource MaterialDesignChoiceChipPrimaryOutlineListBox}">
+                    Style="{StaticResource MaterialDesignChoiceChipPrimaryOutlineListBox}"
+                    Visibility="Collapsed">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <TextBlock Text="{Binding Remarks}" />
@@ -41,7 +42,8 @@
                     Height="30"
                     Margin="{StaticResource MarginLeftRight4}"
                     Style="{StaticResource MaterialDesignFloatingActionMiniLightButton}"
-                    ToolTip="{x:Static resx:ResUI.menuSubEdit}">
+                    ToolTip="{x:Static resx:ResUI.menuSubEdit}"
+                    Visibility="Collapsed">
                     <materialDesign:PackIcon VerticalAlignment="Center" Kind="Edit" />
                 </Button>
                 <Button
@@ -50,7 +52,8 @@
                     Height="30"
                     Margin="{StaticResource MarginLeftRight4}"
                     Style="{StaticResource MaterialDesignFloatingActionMiniLightButton}"
-                    ToolTip="{x:Static resx:ResUI.menuSubAdd}">
+                    ToolTip="{x:Static resx:ResUI.menuSubAdd}"
+                    Visibility="Collapsed">
                     <materialDesign:PackIcon VerticalAlignment="Center" Kind="Plus" />
                 </Button>
 
@@ -160,7 +163,8 @@
                         <MenuItem
                             x:Name="menuMoveToGroup"
                             Height="{StaticResource MenuItemHeight}"
-                            Header="{x:Static resx:ResUI.menuMoveToGroup}">
+                            Header="{x:Static resx:ResUI.menuMoveToGroup}"
+                            Visibility="Collapsed">
                             <MenuItem Height="Auto">
                                 <MenuItem.Header>
                                     <DockPanel>
@@ -270,7 +274,7 @@
                         ExName="StreamSecurity"
                         Header="{x:Static resx:ResUI.LvTLS}" />
                     <base:MyDGTextColumn
-                        Width="100"
+                        Width="0"
                         Binding="{Binding SubRemarks}"
                         ExName="SubRemarks"
                         Header="{x:Static resx:ResUI.LvSubscription}" />
