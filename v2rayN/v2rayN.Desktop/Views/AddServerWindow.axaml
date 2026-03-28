@@ -5,6 +5,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:resx="clr-namespace:ServiceLib.Resx;assembly=ServiceLib"
+    xmlns:views="clr-namespace:v2rayN.Desktop.Views"
     xmlns:vms="clr-namespace:ServiceLib.ViewModels;assembly=ServiceLib"
     Title="{x:Static resx:ResUI.menuServers}"
     Width="900"
@@ -23,22 +24,20 @@
                 x:Name="btnSave"
                 Width="100"
                 Content="{x:Static resx:ResUI.TbConfirm}"
-                Cursor="Hand"
                 IsDefault="True" />
             <Button
                 x:Name="btnCancel"
                 Width="100"
                 Margin="{StaticResource MarginLr8}"
                 Content="{x:Static resx:ResUI.TbCancel}"
-                Cursor="Hand"
                 IsCancel="True" />
         </StackPanel>
         <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
-            <Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto">
+            <Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto">
 
                 <Grid
                     Grid.Row="0"
-                    ColumnDefinitions="180,Auto,Auto"
+                    ColumnDefinitions="300,Auto,Auto"
                     RowDefinitions="Auto,Auto,Auto,Auto">
 
                     <TextBlock
@@ -52,7 +51,7 @@
                         Orientation="Horizontal">
                         <ComboBox
                             x:Name="cmbCoreType"
-                            Width="100"
+                            Width="200"
                             Margin="{StaticResource Margin4}"
                             ToolTip.Tip="{x:Static resx:ResUI.TbCoreType}" />
                     </StackPanel>
@@ -103,9 +102,9 @@
                 <Grid
                     x:Name="gridVMess"
                     Grid.Row="2"
-                    ColumnDefinitions="180,Auto,Auto"
+                    ColumnDefinitions="300,Auto,Auto"
                     IsVisible="False"
-                    RowDefinitions="Auto,Auto,Auto,Auto">
+                    RowDefinitions="Auto,Auto,Auto,Auto,Auto">
 
                     <TextBlock
                         Grid.Row="1"
@@ -152,13 +151,26 @@
                         Grid.Column="1"
                         Width="200"
                         Margin="{StaticResource Margin4}" />
+
+                    <TextBlock
+                        Grid.Row="4"
+                        Grid.Column="0"
+                        Margin="{StaticResource Margin4}"
+                        VerticalAlignment="Center"
+                        Text="{x:Static resx:ResUI.TbSettingsMuxEnabled}" />
+                    <ToggleSwitch
+                        x:Name="togmuxEnabled"
+                        Grid.Row="4"
+                        Grid.Column="1"
+                        Margin="{StaticResource Margin4}"
+                        HorizontalAlignment="Left" />
                 </Grid>
                 <Grid
                     x:Name="gridSs"
                     Grid.Row="2"
-                    ColumnDefinitions="180,Auto"
+                    ColumnDefinitions="300,Auto"
                     IsVisible="False"
-                    RowDefinitions="Auto,Auto,Auto,Auto">
+                    RowDefinitions="Auto,Auto,Auto,Auto,Auto">
 
                     <TextBlock
                         Grid.Row="1"
@@ -185,11 +197,37 @@
                         Grid.Column="1"
                         Width="300"
                         Margin="{StaticResource Margin4}" />
+
+                    <TextBlock
+                        Grid.Row="3"
+                        Grid.Column="0"
+                        Margin="{StaticResource Margin4}"
+                        VerticalAlignment="Center"
+                        Text="{x:Static resx:ResUI.TbUot}" />
+                    <ToggleSwitch
+                        x:Name="togUotEnabled3"
+                        Grid.Row="3"
+                        Grid.Column="1"
+                        Margin="{StaticResource Margin4}"
+                        HorizontalAlignment="Left" />
+
+                    <TextBlock
+                        Grid.Row="4"
+                        Grid.Column="0"
+                        Margin="{StaticResource Margin4}"
+                        VerticalAlignment="Center"
+                        Text="{x:Static resx:ResUI.TbSettingsMuxEnabled}" />
+                    <ToggleSwitch
+                        x:Name="togmuxEnabled3"
+                        Grid.Row="4"
+                        Grid.Column="1"
+                        Margin="{StaticResource Margin4}"
+                        HorizontalAlignment="Left" />
                 </Grid>
                 <Grid
                     x:Name="gridSocks"
                     Grid.Row="2"
-                    ColumnDefinitions="180,Auto"
+                    ColumnDefinitions="300,Auto"
                     IsVisible="False"
                     RowDefinitions="Auto,Auto,Auto,Auto">
 
@@ -222,9 +260,9 @@
                 <Grid
                     x:Name="gridVLESS"
                     Grid.Row="2"
-                    ColumnDefinitions="180,Auto,Auto"
+                    ColumnDefinitions="300,Auto,Auto"
                     IsVisible="False"
-                    RowDefinitions="Auto,Auto,Auto,Auto">
+                    RowDefinitions="Auto,Auto,Auto,Auto,Auto">
 
                     <TextBlock
                         Grid.Row="1"
@@ -271,13 +309,26 @@
                         Width="200"
                         Margin="{StaticResource Margin4}"
                         HorizontalAlignment="Left" />
+
+                    <TextBlock
+                        Grid.Row="4"
+                        Grid.Column="0"
+                        Margin="{StaticResource Margin4}"
+                        VerticalAlignment="Center"
+                        Text="{x:Static resx:ResUI.TbSettingsMuxEnabled}" />
+                    <ToggleSwitch
+                        x:Name="togmuxEnabled5"
+                        Grid.Row="4"
+                        Grid.Column="1"
+                        Margin="{StaticResource Margin4}"
+                        HorizontalAlignment="Left" />
                 </Grid>
                 <Grid
                     x:Name="gridTrojan"
                     Grid.Row="2"
-                    ColumnDefinitions="180,Auto"
+                    ColumnDefinitions="300,Auto"
                     IsVisible="False"
-                    RowDefinitions="Auto,Auto,Auto,Auto">
+                    RowDefinitions="Auto,Auto,Auto,Auto,Auto">
 
                     <TextBlock
                         Grid.Row="1"
@@ -304,13 +355,26 @@
                         Grid.Column="1"
                         Width="200"
                         Margin="{StaticResource Margin4}" />
+
+                    <TextBlock
+                        Grid.Row="4"
+                        Grid.Column="0"
+                        Margin="{StaticResource Margin4}"
+                        VerticalAlignment="Center"
+                        Text="{x:Static resx:ResUI.TbSettingsMuxEnabled}" />
+                    <ToggleSwitch
+                        x:Name="togmuxEnabled6"
+                        Grid.Row="4"
+                        Grid.Column="1"
+                        Margin="{StaticResource Margin4}"
+                        HorizontalAlignment="Left" />
                 </Grid>
                 <Grid
                     x:Name="gridHysteria2"
                     Grid.Row="2"
-                    ColumnDefinitions="180,Auto,Auto"
+                    ColumnDefinitions="300,Auto,Auto"
                     IsVisible="False"
-                    RowDefinitions="Auto,Auto,Auto,Auto">
+                    RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto">
 
                     <TextBlock
                         Grid.Row="1"
@@ -350,18 +414,53 @@
                         Grid.Column="1"
                         Width="400"
                         Margin="{StaticResource Margin4}"
-                        Watermark="1000:2000,3000:4000" />
+                        Watermark="1000-2000,3000,4000" />
                     <TextBlock
                         Grid.Row="3"
                         Grid.Column="2"
                         Margin="{StaticResource Margin4}"
                         VerticalAlignment="Center"
                         Text="{x:Static resx:ResUI.TbPorts7Tips}" />
+
+                    <TextBlock
+                        Grid.Row="4"
+                        Grid.Column="0"
+                        Margin="{StaticResource Margin4}"
+                        VerticalAlignment="Center"
+                        Text="{x:Static resx:ResUI.TbHopInt7}" />
+                    <TextBox
+                        x:Name="txtHopInt7"
+                        Grid.Row="4"
+                        Grid.Column="1"
+                        Width="400"
+                        Margin="{StaticResource Margin4}" />
+
+                    <TextBlock
+                        Grid.Row="5"
+                        Grid.Column="0"
+                        Margin="{StaticResource Margin4}"
+                        VerticalAlignment="Center"
+                        Text="{x:Static resx:ResUI.TbSettingsHysteriaBandwidth}" />
+                    <StackPanel
+                        Grid.Row="5"
+                        Grid.Column="1"
+                        Orientation="Horizontal">
+                        <TextBox
+                            x:Name="txtUpMbps7"
+                            Width="90"
+                            Margin="{StaticResource Margin4}"
+                            Watermark="Up" />
+                        <TextBox
+                            x:Name="txtDownMbps7"
+                            Width="90"
+                            Margin="{StaticResource Margin4}"
+                            Watermark="Down" />
+                    </StackPanel>
                 </Grid>
                 <Grid
                     x:Name="gridTuic"
                     Grid.Row="2"
-                    ColumnDefinitions="180,Auto"
+                    ColumnDefinitions="300,Auto"
                     IsVisible="False"
                     RowDefinitions="Auto,Auto,Auto,Auto">
 
@@ -398,7 +497,7 @@
                         VerticalAlignment="Center"
                         Text="{x:Static resx:ResUI.TbHeaderType8}" />
                     <ComboBox
-                        x:Name="cmbHeaderType8"
+                        x:Name="cmbCongestionControl8"
                         Grid.Row="3"
                         Grid.Column="1"
                         Width="200"
@@ -407,7 +506,7 @@
                 <Grid
                     x:Name="gridWireguard"
                     Grid.Row="2"
-                    ColumnDefinitions="180,Auto"
+                    ColumnDefinitions="300,Auto"
                     IsVisible="False"
                     RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto">
 
@@ -471,7 +570,7 @@
                         Grid.Column="0"
                         Margin="{StaticResource Margin4}"
                         VerticalAlignment="Center"
-                        Text="Mtu" />
+                        Text="{x:Static resx:ResUI.TbSettingsTunMtu}" />
                     <TextBox
                         x:Name="txtShortId9"
                         Grid.Row="5"
@@ -480,6 +579,107 @@
                         Margin="{StaticResource Margin4}"
                         HorizontalAlignment="Left"
                         Watermark="1500" />
+                </Grid>
+                <Grid
+                    x:Name="gridAnytls"
+                    Grid.Row="2"
+                    ColumnDefinitions="300,Auto"
+                    IsVisible="False"
+                    RowDefinitions="Auto,Auto,Auto">
+
+                    <TextBlock
+                        Grid.Row="1"
+                        Grid.Column="0"
+                        Margin="{StaticResource Margin4}"
+                        VerticalAlignment="Center"
+                        Text="{x:Static resx:ResUI.TbId3}" />
+                    <TextBox
+                        x:Name="txtId11"
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        Width="400"
+                        Margin="{StaticResource Margin4}" />
+                </Grid>
+                <Grid
+                    x:Name="gridNaive"
+                    Grid.Row="2"
+                    ColumnDefinitions="300,Auto"
+                    IsVisible="False"
+                    RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto">
+                    <TextBlock
+                        Grid.Row="1"
+                        Grid.Column="0"
+                        Margin="{StaticResource Margin4}"
+                        VerticalAlignment="Center"
+                        Text="{x:Static resx:ResUI.TbUsername}" />
+                    <TextBox
+                        x:Name="txtId12"
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        Width="400"
+                        Margin="{StaticResource Margin4}" />
+
+                    <TextBlock
+                        Grid.Row="2"
+                        Grid.Column="0"
+                        Margin="{StaticResource Margin4}"
+                        VerticalAlignment="Center"
+                        Text="{x:Static resx:ResUI.TbId3}" />
+                    <TextBox
+                        x:Name="txtSecurity12"
+                        Grid.Row="2"
+                        Grid.Column="1"
+                        Width="400"
+                        Margin="{StaticResource Margin4}" />
+
+                    <TextBlock
+                        Grid.Row="3"
+                        Grid.Column="0"
+                        Margin="{StaticResource Margin4}"
+                        VerticalAlignment="Center"
+                        Text="QUIC" />
+                    <StackPanel
+                        Grid.Row="3"
+                        Grid.Column="1"
+                        VerticalAlignment="Center"
+                        Orientation="Horizontal">
+                        <ToggleSwitch
+                            x:Name="togNaiveQuic12"
+                            Margin="{StaticResource Margin4}"
+                            HorizontalAlignment="Left" />
+                        <ComboBox
+                            x:Name="cmbCongestionControl12"
+                            Width="200"
+                            Margin="{StaticResource Margin4}"
+                            PlaceholderText="{x:Static resx:ResUI.TbHeaderType8}" />
+                    </StackPanel>
+
+                    <TextBlock
+                        Grid.Row="4"
+                        Grid.Column="0"
+                        Margin="{StaticResource Margin4}"
+                        VerticalAlignment="Center"
+                        Text="{x:Static resx:ResUI.TbInsecureConcurrency}" />
+                    <TextBox
+                        x:Name="txtInsecureConcurrency12"
+                        Grid.Row="4"
+                        Grid.Column="1"
+                        Width="200"
+                        Margin="{StaticResource Margin4}"
+                        HorizontalAlignment="Left" />
+
+                    <TextBlock
+                        Grid.Row="5"
+                        Grid.Column="0"
+                        Margin="{StaticResource Margin4}"
+                        VerticalAlignment="Center"
+                        Text="{x:Static resx:ResUI.TbUot}" />
+                    <ToggleSwitch
+                        x:Name="togUotEnabled12"
+                        Grid.Row="5"
+                        Grid.Column="1"
+                        Margin="{StaticResource Margin4}"
+                        HorizontalAlignment="Left" />
                 </Grid>
 
                 <Separator
@@ -490,7 +690,7 @@
                 <Grid
                     x:Name="gridTransport"
                     Grid.Row="4"
-                    ColumnDefinitions="180,Auto,Auto"
+                    ColumnDefinitions="300,Auto,Auto"
                     RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto">
 
                     <TextBlock
@@ -537,12 +737,14 @@
 
                         <Button
                             x:Name="btnExtra"
-                            Width="{StaticResource IconButtonWidth}"
-                            Height="{StaticResource IconButtonHeight}"
                             Margin="{StaticResource MarginLr8}"
-                            Theme="{DynamicResource BorderlessButton}">
+                            Classes="IconButton">
                             <Button.Content>
-                                <PathIcon Data="{StaticResource building_more}" Foreground="{DynamicResource ButtonDefaultTertiaryForeground}" />
+                                <PathIcon Data="{StaticResource SemiIconMore}">
+                                    <PathIcon.RenderTransform>
+                                        <RotateTransform Angle="90" />
+                                    </PathIcon.RenderTransform>
+                                </PathIcon>
                             </Button.Content>
                             <Button.Flyout>
                                 <Flyout>
@@ -551,16 +753,13 @@
                                             Margin="{StaticResource Margin4}"
                                             VerticalAlignment="Center"
                                             Text="{x:Static resx:ResUI.TransportExtraTip}" />
-                                        <TextBox
+                                        <views:JsonEditor
                                             x:Name="txtExtra"
                                             Width="400"
                                             MinHeight="100"
                                             Margin="{StaticResource Margin4}"
                                             HorizontalAlignment="Stretch"
-                                            VerticalAlignment="Center"
-                                            Classes="TextArea"
-                                            MinLines="6"
-                                            TextWrapping="Wrap" />
+                                            VerticalAlignment="Center" />
                                     </StackPanel>
                                 </Flyout>
                             </Button.Flyout>
@@ -615,12 +814,52 @@
                         Text="{x:Static resx:ResUI.TbPath}" />
                 </Grid>
 
-                <Separator Grid.Row="5" Margin="{StaticResource MarginTb8}" />
+                <Grid
+                    x:Name="gridFinalmask"
+                    Grid.Row="5"
+                    ColumnDefinitions="300,Auto">
+                    <TextBlock
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        Margin="{StaticResource Margin4}"
+                        VerticalAlignment="Center"
+                        Text="{x:Static resx:ResUI.TbFinalmask}" />
+                    <Button
+                        Grid.Row="0"
+                        Grid.Column="1"
+                        Margin="{StaticResource MarginLr4}"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Center"
+                        Classes="IconButton">
+                        <Button.Content>
+                            <PathIcon Data="{StaticResource SemiIconMore}">
+                                <PathIcon.RenderTransform>
+                                    <RotateTransform Angle="90" />
+                                </PathIcon.RenderTransform>
+                            </PathIcon>
+                        </Button.Content>
+                        <Button.Flyout>
+                            <Flyout>
+                                <StackPanel>
+                                    <views:JsonEditor
+                                        x:Name="txtFinalmask"
+                                        Width="400"
+                                        MinHeight="100"
+                                        Margin="{StaticResource Margin4}"
+                                        HorizontalAlignment="Stretch"
+                                        VerticalAlignment="Center" />
+                                </StackPanel>
+                            </Flyout>
+                        </Button.Flyout>
+                    </Button>
+                </Grid>
+
+                <Separator Grid.Row="6" Margin="{StaticResource MarginTb8}" />
 
                 <Grid
                     x:Name="gridTls"
-                    Grid.Row="6"
-                    ColumnDefinitions="180,Auto"
+                    Grid.Row="7"
+                    ColumnDefinitions="300,Auto"
                     RowDefinitions="Auto,Auto,Auto,Auto,Auto">
 
                     <TextBlock
@@ -638,10 +877,10 @@
                 </Grid>
                 <Grid
                     x:Name="gridTlsMore"
-                    Grid.Row="7"
-                    ColumnDefinitions="180,Auto"
+                    Grid.Row="8"
+                    ColumnDefinitions="300,Auto"
                     IsVisible="False"
-                    RowDefinitions="Auto,Auto,Auto,Auto,Auto">
+                    RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto">
 
                     <TextBlock
                         Grid.Row="1"
@@ -695,13 +934,116 @@
                         Grid.Column="1"
                         Width="200"
                         Margin="{StaticResource Margin4}" />
+
+                    <TextBlock
+                        Grid.Row="5"
+                        Grid.Column="0"
+                        Margin="{StaticResource Margin4}"
+                        VerticalAlignment="Center"
+                        Text="{x:Static resx:ResUI.TbEchConfigList}" />
+                    <TextBox
+                        x:Name="txtEchConfigList"
+                        Grid.Row="5"
+                        Grid.Column="1"
+                        Width="400"
+                        Margin="{StaticResource Margin4}"
+                        HorizontalAlignment="Left" />
+
+                    <TextBlock
+                        Grid.Row="6"
+                        Grid.Column="0"
+                        Margin="{StaticResource Margin4}"
+                        VerticalAlignment="Center"
+                        Text="{x:Static resx:ResUI.TbEchForceQuery}" />
+                    <ComboBox
+                        x:Name="cmbEchForceQuery"
+                        Grid.Row="6"
+                        Grid.Column="1"
+                        Width="200"
+                        Margin="{StaticResource Margin4}" />
+
+                    <TextBlock
+                        Grid.Row="7"
+                        Grid.Column="0"
+                        Margin="{StaticResource Margin4}"
+                        VerticalAlignment="Center"
+                        Text="{x:Static resx:ResUI.TbCertPinning}" />
+                    <StackPanel
+                        Grid.Row="7"
+                        Grid.Column="1"
+                        VerticalAlignment="Center"
+                        Orientation="Horizontal">
+                        <TextBlock
+                            x:Name="labCertPinning"
+                            Margin="{StaticResource Margin8}"
+                            VerticalAlignment="Center" />
+                        <Button
+                            Margin="{StaticResource MarginLr4}"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Center"
+                            Classes="IconButton">
+                            <Button.Content>
+                                <PathIcon Data="{StaticResource SemiIconMore}">
+                                    <PathIcon.RenderTransform>
+                                        <RotateTransform Angle="90" />
+                                    </PathIcon.RenderTransform>
+                                </PathIcon>
+                            </Button.Content>
+                            <Button.Flyout>
+                                <Flyout>
+                                    <StackPanel>
+                                        <TextBlock
+                                            Width="400"
+                                            Margin="{StaticResource Margin4}"
+                                            VerticalAlignment="Center"
+                                            Text="{x:Static resx:ResUI.TbCertPinningTips}"
+                                            TextWrapping="Wrap" />
+                                        <StackPanel HorizontalAlignment="Left" Orientation="Horizontal">
+                                            <Button
+                                                x:Name="btnFetchCert"
+                                                Margin="{StaticResource Margin4}"
+                                                Content="{x:Static resx:ResUI.TbFetchCert}" />
+                                            <Button
+                                                x:Name="btnFetchCertChain"
+                                                Margin="{StaticResource Margin4}"
+                                                Content="{x:Static resx:ResUI.TbFetchCertChain}" />
+                                        </StackPanel>
+                                        <TextBlock
+                                            Width="400"
+                                            Margin="{StaticResource Margin4}"
+                                            VerticalAlignment="Center"
+                                            Text="{x:Static resx:ResUI.TbCertSha256Tips}"
+                                            TextWrapping="Wrap" />
+                                        <TextBox
+                                            x:Name="txtCertSha256Pinning"
+                                            Width="400"
+                                            Margin="{StaticResource Margin4}"
+                                            HorizontalAlignment="Left" />
+                                        <TextBlock
+                                            Width="400"
+                                            Margin="{StaticResource Margin4}"
+                                            VerticalAlignment="Center"
+                                            Text="{x:Static resx:ResUI.TbFullCertTips}"
+                                            TextWrapping="Wrap" />
+                                        <TextBox
+                                            x:Name="txtCert"
+                                            Width="400"
+                                            Margin="{StaticResource Margin4}"
+                                            AcceptsReturn="True"
+                                            Classes="TextArea"
+                                            TextWrapping="NoWrap" />
+                                    </StackPanel>
+                                </Flyout>
+                            </Button.Flyout>
+                        </Button>
+                    </StackPanel>
                 </Grid>
                 <Grid
                     x:Name="gridRealityMore"
-                    Grid.Row="7"
-                    ColumnDefinitions="180,Auto"
+                    Grid.Row="8"
+                    ColumnDefinitions="300,Auto"
                     IsVisible="False"
-                    RowDefinitions="Auto,Auto,Auto,Auto,Auto">
+                    RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto">
 
                     <TextBlock
                         Grid.Row="0"
@@ -771,8 +1113,22 @@
                         Width="400"
                         Margin="{StaticResource Margin4}"
                         HorizontalAlignment="Left" />
+
+                    <TextBlock
+                        Grid.Row="5"
+                        Grid.Column="0"
+                        Margin="{StaticResource Margin4}"
+                        VerticalAlignment="Center"
+                        Text="{x:Static resx:ResUI.TbMldsa65Verify}" />
+                    <TextBox
+                        x:Name="txtMldsa65Verify"
+                        Grid.Row="5"
+                        Grid.Column="1"
+                        Width="400"
+                        Margin="{StaticResource Margin4}"
+                        HorizontalAlignment="Left" />
                 </Grid>
-                <Separator Grid.Row="8" Margin="{StaticResource MarginTb8}" />
+                <Separator Grid.Row="9" Margin="{StaticResource MarginTb8}" />
             </Grid>
         </ScrollViewer>
     </DockPanel>

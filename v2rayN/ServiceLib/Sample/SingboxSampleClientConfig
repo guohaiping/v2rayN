@@ -1,4 +1,4 @@
-﻿{
+{
 	"log": {
 		"level": "debug",
 		"timestamp": true
@@ -6,30 +6,11 @@
 	"inbounds": [],
 	"outbounds": [
 		{
-			"type": "vless",
-			"tag": "proxy",
-			"server": "",
-			"server_port": 443
-		},
-		{
 			"type": "direct",
 			"tag": "direct"
-		},
-		{
-			"type": "block",
-			"tag": "block"
-		},
-		{
-			"tag": "dns_out",
-			"type": "dns"
 		}
 	],
 	"route": {
-		"rules": [
-			{
-				"protocol": [ "dns" ],
-				"outbound": "dns_out"
-			}
-		]
+		"rules": []
 	}
 }

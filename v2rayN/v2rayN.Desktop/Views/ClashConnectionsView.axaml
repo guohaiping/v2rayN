@@ -27,27 +27,21 @@
 
             <Button
                 x:Name="btnConnectionCloseAll"
-                Width="{StaticResource IconButtonWidth}"
-                Height="{StaticResource IconButtonHeight}"
-                Classes="Success"
+                Classes="IconButton Success"
                 Margin="{StaticResource MarginLr8}"
-                Theme="{DynamicResource BorderlessButton}"
                 ToolTip.Tip="{x:Static resx:ResUI.menuConnectionCloseAll}">
                 <Button.Content>
-                    <PathIcon Data="{StaticResource building_delete}" Foreground="{DynamicResource ButtonDefaultTertiaryForeground}" />
+                    <PathIcon Data="{StaticResource SemiIconClose}" />
                 </Button.Content>
             </Button>
 
             <Button
                 x:Name="btnAutofitColumnWidth"
-                Width="{StaticResource IconButtonWidth}"
-                Height="{StaticResource IconButtonHeight}"
-                Classes="Success"
+                Classes="IconButton Success"
                 Margin="{StaticResource MarginLr8}"
-                Theme="{DynamicResource BorderlessButton}"
                 ToolTip.Tip="{x:Static resx:ResUI.menuProfileAutofitColumnWidth}">
                 <Button.Content>
-                    <PathIcon Data="{StaticResource building_fit}" Foreground="{DynamicResource ButtonDefaultTertiaryForeground}" />
+                    <PathIcon Data="{StaticResource SemiIconExpand}" />
                 </Button.Content>
             </Button>
 
@@ -80,23 +74,28 @@
                 <DataGridTextColumn
                     Width="300"
                     Binding="{Binding Host}"
-                    Header="{x:Static resx:ResUI.TbSortingHost}" />
+                    Header="{x:Static resx:ResUI.TbSortingHost}"
+                    Tag="Host" />
                 <DataGridTextColumn
                     Width="500"
                     Binding="{Binding Chain}"
-                    Header="{x:Static resx:ResUI.TbSortingChain}" />
+                    Header="{x:Static resx:ResUI.TbSortingChain}"
+                    Tag="Chain" />
                 <DataGridTextColumn
                     Width="80"
                     Binding="{Binding Network}"
-                    Header="{x:Static resx:ResUI.TbSortingNetwork}" />
+                    Header="{x:Static resx:ResUI.TbSortingNetwork}"
+                    Tag="Network" />
                 <DataGridTextColumn
                     Width="160"
                     Binding="{Binding Type}"
-                    Header="{x:Static resx:ResUI.TbSortingType}" />
+                    Header="{x:Static resx:ResUI.TbSortingType}"
+                    Tag="Type" />
                 <DataGridTextColumn
                     Width="100"
                     Binding="{Binding Elapsed}"
-                    Header="{x:Static resx:ResUI.TbSortingTime}" />
+                    Header="{x:Static resx:ResUI.TbSortingTime}"
+                    Tag="Elapsed" />
             </DataGrid.Columns>
         </DataGrid>
     </DockPanel>

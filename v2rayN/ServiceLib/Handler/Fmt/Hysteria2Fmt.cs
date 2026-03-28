@@ -1,102 +1,97 @@
-namespace ServiceLib.Handler.Fmt
+namespace ServiceLib.Handler.Fmt;
+
+public class Hysteria2Fmt : BaseFmt
 {
-    public class Hysteria2Fmt : BaseFmt
+    public static ProfileItem? Resolve(string str, out string msg)
     {
-        public static ProfileItem? Resolve(string str, out string msg)
+        msg = ResUI.ConfigurationFormatIncorrect;
+        ProfileItem item = new()
         {
-            msg = ResUI.ConfigurationFormatIncorrect;
-            ProfileItem item = new()
+            ConfigType = EConfigType.Hysteria2
+        };
+
+        var url = Utils.TryUri(str);
+        if (url == null)
+        {
+            return null;
+        }
+
+        item.Address = url.IdnHost;
+        item.Port = url.Port;
+        item.Remarks = url.GetComponents(UriComponents.Fragment, UriFormat.Unescaped);
+        item.Password = Utils.UrlDecode(url.UserInfo);
+
+        var query = Utils.ParseQueryString(url.Query);
+        ResolveUriQuery(query, ref item);
+        if (item.CertSha.IsNullOrEmpty())
+        {
+            item.CertSha = GetQueryDecoded(query, "pinSHA256");
+        }
+        item.SetProtocolExtra(item.GetProtocolExtra() with
+        {
+            Ports = GetQueryDecoded(query, "mport"),
+            SalamanderPass = GetQueryDecoded(query, "obfs-password"),
+        });
+
+        return item;
+    }
+
+    public static string? ToUri(ProfileItem? item)
+    {
+        if (item == null)
+        {
+            return null;
+        }
+
+        var url = string.Empty;
+
+        var remark = string.Empty;
+        if (item.Remarks.IsNotEmpty())
+        {
+            remark = "#" + Utils.UrlEncode(item.Remarks);
+        }
+        var dicQuery = new Dictionary<string, string>();
+        ToUriQueryLite(item, ref dicQuery);
+        var protocolExtraItem = item.GetProtocolExtra();
+
+        if (!protocolExtraItem.SalamanderPass.IsNullOrEmpty())
+        {
+            dicQuery.Add("obfs", "salamander");
+            dicQuery.Add("obfs-password", Utils.UrlEncode(protocolExtraItem.SalamanderPass));
+        }
+        if (!protocolExtraItem.Ports.IsNullOrEmpty())
+        {
+            dicQuery.Add("mport", Utils.UrlEncode(protocolExtraItem.Ports.Replace(':', '-')));
+        }
+        if (!item.CertSha.IsNullOrEmpty())
+        {
+            var sha = item.CertSha;
+            var idx = sha.IndexOf(',');
+            if (idx > 0)
             {
-                ConfigType = EConfigType.Hysteria2
+                sha = sha[..idx];
+            }
+            dicQuery.Add("pinSHA256", Utils.UrlEncode(sha));
+        }
+
+        return ToUri(EConfigType.Hysteria2, item.Address, item.Port, item.Password, dicQuery, remark);
+    }
+
+    public static ProfileItem? ResolveFull2(string strData, string? subRemarks)
+    {
+        if (Contains(strData, "server", "auth", "up", "down", "listen"))
+        {
+            var fileName = WriteAllText(strData);
+
+            var profileItem = new ProfileItem
+            {
+                CoreType = ECoreType.hysteria2,
+                Address = fileName,
+                Remarks = subRemarks ?? "hysteria2_custom"
             };
-
-            var url = Utils.TryUri(str);
-            if (url == null)
-                return null;
-
-            item.Address = url.IdnHost;
-            item.Port = url.Port;
-            item.Remarks = url.GetComponents(UriComponents.Fragment, UriFormat.Unescaped);
-            item.Id = Utils.UrlDecode(url.UserInfo);
-
-            var query = Utils.ParseQueryString(url.Query);
-            ResolveStdTransport(query, ref item);
-            item.Path = Utils.UrlDecode(query["obfs-password"] ?? "");
-            item.AllowInsecure = (query["insecure"] ?? "") == "1" ? "true" : "false";
-
-            item.Ports = Utils.UrlDecode(query["mport"] ?? "").Replace('-', ':');
-
-            return item;
+            return profileItem;
         }
 
-        public static string? ToUri(ProfileItem? item)
-        {
-            if (item == null)
-                return null;
-            string url = string.Empty;
-
-            string remark = string.Empty;
-            if (item.Remarks.IsNotEmpty())
-            {
-                remark = "#" + Utils.UrlEncode(item.Remarks);
-            }
-            var dicQuery = new Dictionary<string, string>();
-            if (item.Sni.IsNotEmpty())
-            {
-                dicQuery.Add("sni", item.Sni);
-            }
-            if (item.Alpn.IsNotEmpty())
-            {
-                dicQuery.Add("alpn", Utils.UrlEncode(item.Alpn));
-            }
-            if (item.Path.IsNotEmpty())
-            {
-                dicQuery.Add("obfs", "salamander");
-                dicQuery.Add("obfs-password", Utils.UrlEncode(item.Path));
-            }
-            dicQuery.Add("insecure", item.AllowInsecure.ToLower() == "true" ? "1" : "0");
-            if (item.Ports.IsNotEmpty())
-            {
-                dicQuery.Add("mport", Utils.UrlEncode(item.Ports.Replace(':', '-')));
-            }
-
-            return ToUri(EConfigType.Hysteria2, item.Address, item.Port, item.Id, dicQuery, remark);
-        }
-
-        public static ProfileItem? ResolveFull(string strData, string? subRemarks)
-        {
-            if (Contains(strData, "server", "up", "down", "listen", "<html>", "<body>"))
-            {
-                var fileName = WriteAllText(strData);
-
-                var profileItem = new ProfileItem
-                {
-                    CoreType = ECoreType.hysteria,
-                    Address = fileName,
-                    Remarks = subRemarks ?? "hysteria_custom"
-                };
-                return profileItem;
-            }
-
-            return null;
-        }
-
-        public static ProfileItem? ResolveFull2(string strData, string? subRemarks)
-        {
-            if (Contains(strData, "server", "auth", "up", "down", "listen"))
-            {
-                var fileName = WriteAllText(strData);
-
-                var profileItem = new ProfileItem
-                {
-                    CoreType = ECoreType.hysteria2,
-                    Address = fileName,
-                    Remarks = subRemarks ?? "hysteria2_custom"
-                };
-                return profileItem;
-            }
-
-            return null;
-        }
+        return null;
     }
 }

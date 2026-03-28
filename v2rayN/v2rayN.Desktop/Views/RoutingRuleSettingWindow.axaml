@@ -14,35 +14,28 @@
     WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
     <DockPanel>
-        <StackPanel
-            Margin="{StaticResource Margin4}"
-            DockPanel.Dock="Top"
-            Orientation="Horizontal">
-            <Menu>
-                <MenuItem x:Name="menuRuleAdd" Header="{x:Static resx:ResUI.menuRuleAdd}" />
-                <MenuItem x:Name="menuImportRulesFromFile" Header="{x:Static resx:ResUI.menuImportRulesFromFile}" />
-                <MenuItem x:Name="menuImportRulesFromClipboard" Header="{x:Static resx:ResUI.menuImportRulesFromClipboard}" />
-                <MenuItem x:Name="menuImportRulesFromUrl" Header="{x:Static resx:ResUI.menuImportRulesFromUrl}" />
-            </Menu>
-        </StackPanel>
+        <Menu Margin="{StaticResource Margin4}" DockPanel.Dock="Top">
+            <MenuItem x:Name="menuRuleAdd" Header="{x:Static resx:ResUI.menuRuleAdd}" />
+            <MenuItem x:Name="menuImportRulesFromFile" Header="{x:Static resx:ResUI.menuImportRulesFromFile}" />
+            <MenuItem x:Name="menuImportRulesFromClipboard" Header="{x:Static resx:ResUI.menuImportRulesFromClipboard}" />
+            <MenuItem x:Name="menuImportRulesFromUrl" Header="{x:Static resx:ResUI.menuImportRulesFromUrl}" />
+        </Menu>
 
         <StackPanel
-            HorizontalAlignment="Right"
             Margin="{StaticResource Margin4}"
+            HorizontalAlignment="Right"
             DockPanel.Dock="Bottom"
             Orientation="Horizontal">
             <Button
                 x:Name="btnSave"
                 Width="100"
                 Content="{x:Static resx:ResUI.TbConfirm}"
-                Cursor="Hand"
                 IsDefault="True" />
             <Button
                 x:Name="btnCancel"
                 Width="100"
                 Margin="{StaticResource MarginLr8}"
                 Content="{x:Static resx:ResUI.TbCancel}"
-                Cursor="Hand"
                 IsCancel="True" />
         </StackPanel>
 
@@ -54,8 +47,8 @@
             <TextBlock
                 Grid.Row="0"
                 Grid.Column="0"
-                VerticalAlignment="Center"
                 Margin="{StaticResource Margin4}"
+                VerticalAlignment="Center"
                 Text="{x:Static resx:ResUI.LvRemarks}" />
             <StackPanel
                 Grid.Row="0"
@@ -67,27 +60,27 @@
                     Grid.Row="0"
                     Grid.Column="1"
                     Width="300"
+                    Margin="{StaticResource Margin4}"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Center"
-                    Margin="{StaticResource Margin4}"
                     TextWrapping="Wrap" />
 
                 <TextBlock
-                    VerticalAlignment="Center"
                     Margin="{StaticResource Margin4}"
+                    VerticalAlignment="Center"
                     Text="{x:Static resx:ResUI.LvSort}" />
                 <TextBox
                     x:Name="txtSort"
                     Width="100"
-                    HorizontalAlignment="Left"
-                    Margin="{StaticResource Margin4}" />
+                    Margin="{StaticResource Margin4}"
+                    HorizontalAlignment="Left" />
             </StackPanel>
 
             <TextBlock
                 Grid.Row="1"
                 Grid.Column="0"
-                VerticalAlignment="Center"
                 Margin="{StaticResource Margin4}"
+                VerticalAlignment="Center"
                 Text="{x:Static resx:ResUI.TbdomainStrategy}" />
             <StackPanel
                 Grid.Row="1"
@@ -98,8 +91,8 @@
                     Width="200"
                     Margin="{StaticResource Margin4}" />
                 <TextBlock
-                    VerticalAlignment="Center"
                     Margin="{StaticResource Margin4}"
+                    VerticalAlignment="Center"
                     Text="{x:Static resx:ResUI.TbdomainStrategy4Singbox}" />
                 <ComboBox
                     x:Name="cmbdomainStrategy4Singbox"
@@ -110,17 +103,17 @@
             <TextBlock
                 Grid.Row="2"
                 Grid.Column="0"
-                VerticalAlignment="Center"
                 Margin="{StaticResource Margin4}"
+                VerticalAlignment="Center"
                 Text="{x:Static resx:ResUI.LvUrl}" />
             <TextBox
                 x:Name="txtUrl"
                 Grid.Row="2"
                 Grid.Column="1"
                 Width="600"
+                Margin="{StaticResource Margin4}"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Center"
-                Margin="{StaticResource Margin4}"
                 TextWrapping="Wrap" />
 
             <!--
@@ -150,8 +143,8 @@
             <TextBlock
                 Grid.Row="4"
                 Grid.Column="0"
-                VerticalAlignment="Center"
-                Margin="{StaticResource Margin4}">
+                Margin="{StaticResource Margin4}"
+                VerticalAlignment="Center">
                 <HyperlinkButton Classes="WithIcon" Click="linkCustomRulesetPath4Singbox">
                     <TextBlock Text="{x:Static resx:ResUI.LvCustomRulesetPath4Singbox}" />
                 </HyperlinkButton>
@@ -161,9 +154,9 @@
                 Grid.Row="4"
                 Grid.Column="1"
                 Width="600"
+                Margin="{StaticResource Margin4}"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Center"
-                Margin="{StaticResource Margin4}"
                 TextWrapping="Wrap" />
             <Button
                 x:Name="btnBrowseCustomRulesetPath4Singbox"
@@ -178,6 +171,7 @@
                 <DataGrid
                     x:Name="lstRules"
                     AutoGenerateColumns="False"
+                    Background="Transparent"
                     BorderThickness="1"
                     CanUserResizeColumns="True"
                     GridLinesVisibility="All"
@@ -190,14 +184,32 @@
                     <DataGrid.ContextMenu>
                         <ContextMenu>
                             <MenuItem x:Name="menuRuleAdd2" Header="{x:Static resx:ResUI.menuRuleAdd}" />
-                            <MenuItem x:Name="menuRuleRemove" Header="{x:Static resx:ResUI.menuRuleRemove}" />
-                            <MenuItem x:Name="menuRuleSelectAll" Header="{x:Static resx:ResUI.menuSelectAll}" />
+                            <MenuItem
+                                x:Name="menuRuleRemove"
+                                Header="{x:Static resx:ResUI.menuRuleRemove}"
+                                InputGesture="Back" />
+                            <MenuItem
+                                x:Name="menuRuleSelectAll"
+                                Header="{x:Static resx:ResUI.menuSelectAll}"
+                                InputGesture="Ctrl+A" />
                             <MenuItem x:Name="menuRuleExportSelected" Header="{x:Static resx:ResUI.menuRuleExportSelected}" />
                             <Separator />
-                            <MenuItem x:Name="menuMoveTop" Header="{x:Static resx:ResUI.menuMoveTop}" />
-                            <MenuItem x:Name="menuMoveUp" Header="{x:Static resx:ResUI.menuMoveUp}" />
-                            <MenuItem x:Name="menuMoveDown" Header="{x:Static resx:ResUI.menuMoveDown}" />
-                            <MenuItem x:Name="menuMoveBottom" Header="{x:Static resx:ResUI.menuMoveBottom}" />
+                            <MenuItem
+                                x:Name="menuMoveTop"
+                                Header="{x:Static resx:ResUI.menuMoveTop}"
+                                InputGesture="T" />
+                            <MenuItem
+                                x:Name="menuMoveUp"
+                                Header="{x:Static resx:ResUI.menuMoveUp}"
+                                InputGesture="U" />
+                            <MenuItem
+                                x:Name="menuMoveDown"
+                                Header="{x:Static resx:ResUI.menuMoveDown}"
+                                InputGesture="D" />
+                            <MenuItem
+                                x:Name="menuMoveBottom"
+                                Header="{x:Static resx:ResUI.menuMoveBottom}"
+                                InputGesture="B" />
                         </ContextMenu>
                     </DataGrid.ContextMenu>
                     <DataGrid.Columns>
@@ -210,7 +222,11 @@
                             Binding="{Binding Remarks}"
                             Header="{x:Static resx:ResUI.LvRemarks}" />
                         <DataGridTextColumn
-                            Width="120"
+                            Width="100"
+                            Binding="{Binding RuleTypeName}"
+                            Header="{x:Static resx:ResUI.TbRuleType}" />
+                        <DataGridTextColumn
+                            Width="130"
                             Binding="{Binding OutboundTag}"
                             Header="outboundTag" />
                         <DataGridTextColumn
@@ -226,17 +242,13 @@
                             Binding="{Binding InboundTags}"
                             Header="inboundTag" />
                         <DataGridTextColumn
-                            Width="90"
+                            Width="100"
                             Binding="{Binding Network}"
                             Header="network" />
                         <DataGridTextColumn
                             Width="*"
                             Binding="{Binding Domains}"
-                            Header="domain" />
-                        <DataGridTextColumn
-                            Width="*"
-                            Binding="{Binding Ips}"
-                            Header="ip" />
+                            Header="domain / ip / process" />
                     </DataGrid.Columns>
                 </DataGrid>
             </TabItem>
